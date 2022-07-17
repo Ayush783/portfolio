@@ -15,7 +15,8 @@ class Navbar extends StatelessWidget {
           children: [
             Text(
               'Aayush Sharma | Flutter Developer',
-              style: AppTypography.boldBodyTextstyle2,
+              style: AppTypography.boldBodyTextstyle2
+                  .copyWith(color: AppColors.primaryColor),
             ),
             const SizedBox(width: 16),
             NavButton('Github',
