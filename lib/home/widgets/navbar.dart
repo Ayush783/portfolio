@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/theme/colors.dart';
 import 'package:portfolio/theme/theme.dart';
+import 'package:portfolio/utils/url_launcher_util.dart';
 
 class Navbar extends StatelessWidget {
   const Navbar({Key? key}) : super(key: key);
@@ -19,12 +20,15 @@ class Navbar extends StatelessWidget {
                   .copyWith(color: AppColors.primaryColor),
             ),
             const SizedBox(width: 16),
-            NavButton('Github',
-                onTap: () {}, hasIcon: true, icon: 'github.svg'),
-            NavButton('LinkedIn',
-                onTap: () {}, hasIcon: true, icon: 'linkedin.svg'),
-            NavButton('Twitter',
-                onTap: () {}, hasIcon: true, icon: 'twitter.svg'),
+            NavButton('Github', onTap: () {
+              UrlLaunchUtil.launch('https://github.com/Ayush783/');
+            }, hasIcon: true, icon: 'github.svg'),
+            NavButton('LinkedIn', onTap: () {
+              UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
+            }, hasIcon: true, icon: 'linkedin.svg'),
+            NavButton('Twitter', onTap: () {
+              UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
+            }, hasIcon: true, icon: 'twitter.svg'),
             const Spacer(),
             NavButton(
               'About',
