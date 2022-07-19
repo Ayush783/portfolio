@@ -1,8 +1,6 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
+import 'package:portfolio/about/about.dart';
 import 'package:portfolio/home/widgets/navbar.dart';
-import 'package:portfolio/theme/colors.dart';
 
 import '../widgets/background.dart';
 
@@ -63,8 +61,15 @@ class _ScrollViewBodyState extends State<ScrollViewBody> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      children: [],
+    final h = MediaQuery.of(context).size.height;
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: ListView(
+        itemExtent: h - 64,
+        children: [
+          AboutView(),
+        ],
+      ),
     );
   }
 }
