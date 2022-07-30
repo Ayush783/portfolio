@@ -68,6 +68,7 @@ class _ScrollViewBodyState extends State<ScrollViewBody> {
     final h = MediaQuery.of(context).size.height;
     return ListView(
       itemExtent: h - 60,
+      cacheExtent: 4 * h,
       children: const [
         AboutView(),
         ProjectsView(),

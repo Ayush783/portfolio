@@ -31,6 +31,7 @@ class _AnimatedTextSwitcherState extends ConsumerState<AnimatedTextSwitcher> {
   @override
   void dispose() {
     _timer.cancel();
+    controller.dispose();
     super.dispose();
   }
 
