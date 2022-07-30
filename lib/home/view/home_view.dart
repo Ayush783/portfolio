@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/about/about.dart';
+import 'package:portfolio/contact/contact.dart';
 import 'package:portfolio/home/widgets/navbar.dart';
+import 'package:portfolio/interestes/interests.dart';
+import 'package:portfolio/projects/projects.dart';
 
+import '../../my_flutter/my_flutter.dart';
 import '../widgets/background.dart';
 
 class HomeView extends StatelessWidget {
@@ -62,14 +66,15 @@ class _ScrollViewBodyState extends State<ScrollViewBody> {
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: ListView(
-        itemExtent: h - 64,
-        children: [
-          AboutView(),
-        ],
-      ),
+    return ListView(
+      itemExtent: h - 60,
+      children: const [
+        AboutView(),
+        ProjectsView(),
+        MyFlutterView(),
+        InterestsView(),
+        ContactView(),
+      ],
     );
   }
 }
