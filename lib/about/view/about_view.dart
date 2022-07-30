@@ -1,10 +1,5 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:portfolio/about/provider/about_view_provider.dart';
-import 'package:portfolio/theme/colors.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utils/extension.dart';
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:portfolio/home/widgets/animated_component.dart';
 
 class Background extends StatelessWidget {
   const Background({Key? key}) : super(key: key);

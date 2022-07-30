@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:portfolio/theme/colors.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utils/url_launcher_util.dart';
 

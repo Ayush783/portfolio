@@ -1,10 +1,6 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:portfolio/projects/model/project.dart';
 import 'package:portfolio/theme/theme.dart';
-import 'package:portfolio/utils/url_launcher_util.dart';
 
 import '../widget/project_animated_switcher.dart';
 
