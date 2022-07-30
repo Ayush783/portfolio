@@ -4,11 +4,35 @@ import 'package:portfolio/theme/colors.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utils/url_launcher_util.dart';
 
-class Navbar extends StatelessWidget {
+class Navbar extends StatefulWidget {
   const Navbar({Key? key}) : super(key: key);
 
   @override
+  State<Navbar> createState() => _NavbarState();
+}
+
+class _NavbarState extends State<Navbar> {
+  ScrollController? controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = context
+        .findAncestorStateOfType<NestedScrollViewState>()!
+        .innerController;
+  }
+
+  void scrollBody(double h) {
+    controller?.animateTo(
+      h,
+      duration: const Duration(milliseconds: 370),
+      curve: Curves.easeOut,
+    );
+  }
+
+  @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
     return LayoutBuilder(builder: (context, constraints) {
       return Padding(
         padding: const EdgeInsets.all(16.0),
@@ -32,23 +56,33 @@ class Navbar extends StatelessWidget {
             const Spacer(),
             NavButton(
               'About',
-              onTap: () {},
+              onTap: () {
+                scrollBody(-64);
+              },
             ),
             NavButton(
               'Projects',
-              onTap: () {},
+              onTap: () {
+                scrollBody(h - 60 - 60);
+              },
             ),
             NavButton(
-              'More',
-              onTap: () {},
+              'Flutter',
+              onTap: () {
+                scrollBody(2 * (h - 60) - 56);
+              },
             ),
             NavButton(
               'Interests',
-              onTap: () {},
+              onTap: () {
+                scrollBody(3 * (h - 60) - 56);
+              },
             ),
             NavButton(
               'Contact',
-              onTap: () {},
+              onTap: () {
+                scrollBody(4 * (h - 60) - 56);
+              },
             ),
           ],
         ),
@@ -73,6 +107,7 @@ class NavButton extends StatefulWidget {
 
 class _NavButtonState extends State<NavButton> {
   Color btnColor = AppColors.secondaryColor;
+
   @override
   Widget build(BuildContext context) {
     return Padding(
