@@ -7,7 +7,6 @@ import 'package:portfolio/about/provider/about_view_provider.dart';
 import 'package:portfolio/theme/colors.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utils/extension.dart';
-import 'package:portfolio/utils/url_launcher_util.dart';
 
 import '../widgets/animated_text_switcher.dart';
 
@@ -19,7 +18,7 @@ class AboutView extends ConsumerWidget {
     final w = MediaQuery.of(context).size.width;
     final h = MediaQuery.of(context).size.height;
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: w / 8),
+      padding: EdgeInsets.symmetric(horizontal: w / 8, vertical: 20),
       child: Row(
         children: [
           Expanded(
