@@ -14,8 +14,7 @@ class MFVTexts extends ConsumerStatefulWidget {
   ConsumerState<MFVTexts> createState() => _MFVTextsState();
 }
 
-class _MFVTextsState extends ConsumerState<MFVTexts>
-    with SingleTickerProviderStateMixin {
+class _MFVTextsState extends ConsumerState<MFVTexts> {
   Timer? _timer;
   bool switchText = false;
 
