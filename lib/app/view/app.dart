@@ -29,6 +29,14 @@ class _AppState extends State<App> {
     precacheImage(
         const AssetImage('assets/images/flutter_translator.png'), context);
     precacheImage(const AssetImage('assets/images/yodha.png'), context);
+    precacheImage(const AssetImage('assets/images/7.png'), context);
+    precacheImage(const AssetImage('assets/images/8.png'), context);
+    precacheImage(const AssetImage('assets/images/9.png'), context);
+    precacheImage(const AssetImage('assets/images/10.png'), context);
+    precacheImage(const AssetImage('assets/images/11.png'), context);
+
+    precacheImage(const AssetImage('assets/images/14.png'), context);
+    precacheImage(const AssetImage('assets/images/15.png'), context);
   }
 
   @override
