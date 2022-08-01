@@ -37,9 +37,6 @@ class AboutView extends ConsumerWidget {
                       style: AppTypography.boldHeadingTextstyle.copyWith(
                         fontSize: 64,
                       ),
-                      children: const [
-                        TextSpan(text: '🙏', style: TextStyle(fontSize: 54)),
-                      ],
                     ),
                   ),
                   const SizedBox(height: 16),
