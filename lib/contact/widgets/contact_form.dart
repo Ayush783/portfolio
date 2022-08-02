@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/contact/provider/contact_provider.dart';
+import 'package:portfolio/contact/widgets/widgets/send_button.dart';
 import 'package:portfolio/theme/theme.dart';
+import 'package:portfolio/utils/url_launcher_util.dart';
 
 class ContactForm extends ConsumerStatefulWidget {
   const ContactForm({Key? key, this.isBottom, this.w}) : super(key: key);
@@ -92,6 +94,8 @@ class _ContactFormState extends ConsumerState<ContactForm> {
                     setState(() {
                       formEmpty = false;
                     });
+                    UrlLaunchUtil.launch(
+                        'mailto:aayush9778@gmail.com?subject=${sub.text}&body=${body.text}');
                   }
                 },
               )
@@ -111,55 +115,6 @@ class _ContactFormState extends ConsumerState<ContactForm> {
       border: InputBorder.none,
       enabledBorder: InputBorder.none,
       focusedBorder: InputBorder.none,
-    );
-  }
-}
-
-class SendButton extends StatefulWidget {
-  const SendButton({Key? key, required this.ontap}) : super(key: key);
-
-  final Function() ontap;
-
-  @override
-  State<SendButton> createState() => _SendButtonState();
-}
-
-class _SendButtonState extends State<SendButton> {
-  bool isHovered = false;
-  @override
-  Widget build(BuildContext context) {
-    return InkWell(
-      onTap: widget.ontap,
-      onHover: (val) {
-        setState(() {
-          isHovered = val;
-        });
-      },
-      child: AnimatedContainer(
-        duration: const Duration(milliseconds: 200),
-        curve: Curves.easeOut,
-        decoration: BoxDecoration(
-          border: Border.all(
-            color: const Color(0xfff1f1f1),
-            width: 1.5,
-          ),
-          gradient: LinearGradient(
-            colors: const [
-              Color(0xfff1f1f1),
-              Color(0xfff1f1f1),
-            ],
-            tileMode: TileMode.decal,
-            end: isHovered ? Alignment.bottomRight : Alignment.centerLeft,
-          ),
-        ),
-        padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 32),
-        child: Text(
-          'Send',
-          style: AppTypography.boldBodyTextstyle.copyWith(
-            color: isHovered ? AppColors.primaryColor : const Color(0xfff1f1f1),
-          ),
-        ),
-      ),
     );
   }
 }
