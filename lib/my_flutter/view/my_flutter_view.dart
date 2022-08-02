@@ -3,6 +3,7 @@ import 'package:portfolio/theme/theme.dart';
 
 import '../widgets/mfv_pics.dart';
 import '../widgets/mfv_texts.dart';
+// TODO: Needs to change layout below 1280 px width
 
 class MyFlutterView extends StatefulWidget {
   const MyFlutterView({Key? key}) : super(key: key);

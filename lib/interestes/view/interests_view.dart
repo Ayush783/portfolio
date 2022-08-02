@@ -65,7 +65,6 @@ class _InterestsViewState extends ConsumerState<InterestsView> {
                   for (int i = 0; i < 7; i++)
                     BackgroundPic(
                       images[i],
-                      xy: cordinates(context)[i],
                       waitTime: waitTimes[i],
                       i: i,
                     ),
@@ -89,20 +88,5 @@ const List<String> images = [
   'assets/images/14.png',
   'assets/images/15.png'
 ];
-
-List<List<double>> cordinates(BuildContext context) {
-  final w = MediaQuery.of(context).size.width;
-  final h = MediaQuery.of(context).size.height;
-
-  return [
-    [32, 0],
-    [w / 4 + 60, h / 5],
-    [w / 2, 32],
-    [3 * w / 4, h / 2.5],
-    [w / 6, h / 2.7],
-    [w / 2 - 60, h / 2],
-    [3 * w / 4 + 60, 0],
-  ];
-}
 
 const waitTimes = [550, 400, 900, 700, 650, 500, 650];
