@@ -21,14 +21,6 @@ class _NavbarState extends State<Navbar> {
         .innerController;
   }
 
-  void scrollBody(double h) {
-    controller?.animateTo(
-      h,
-      duration: const Duration(milliseconds: 370),
-      curve: Curves.easeOut,
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -38,55 +30,187 @@ class _NavbarState extends State<Navbar> {
         child: Row(
           children: [
             Text(
-              'Aayush Sharma | Flutter Developer',
+              'Aayush Sharma ${constraints.maxWidth > 660 ? '| Flutter Developer' : ''}',
               style: AppTypography.boldBodyTextstyle2
                   .copyWith(color: AppColors.primaryColor),
             ),
             const SizedBox(width: 16),
-            NavButton('Github', onTap: () {
-              UrlLaunchUtil.launch('https://github.com/Ayush783/');
-            }, hasIcon: true, icon: 'github.svg'),
-            NavButton('LinkedIn', onTap: () {
-              UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
-            }, hasIcon: true, icon: 'linkedin.svg'),
-            NavButton('Twitter', onTap: () {
-              UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
-            }, hasIcon: true, icon: 'twitter.svg'),
+            if (constraints.maxWidth > 800)
+              NavButton('Github', onTap: () {
+                UrlLaunchUtil.launch('https://github.com/Ayush783/');
+              }, hasIcon: true, icon: 'github.svg'),
+            if (constraints.maxWidth > 800)
+              NavButton('LinkedIn', onTap: () {
+                UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
+              }, hasIcon: true, icon: 'linkedin.svg'),
+            if (constraints.maxWidth > 800)
+              NavButton('Twitter', onTap: () {
+                UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
+              }, hasIcon: true, icon: 'twitter.svg'),
             const Spacer(),
-            NavButton(
-              'About',
-              onTap: () {
-                scrollBody(-64);
-              },
-            ),
-            NavButton(
-              'Projects',
-              onTap: () {
-                scrollBody(h - 60 - 60);
-              },
-            ),
-            NavButton(
-              'Flutter',
-              onTap: () {
-                scrollBody(2 * (h - 60) - 56);
-              },
-            ),
-            NavButton(
-              'Interests',
-              onTap: () {
-                scrollBody(3 * (h - 60) - 56);
-              },
-            ),
-            NavButton(
-              'Contact',
-              onTap: () {
-                scrollBody(4 * (h - 60) - 56);
-              },
-            ),
+            if (constraints.maxWidth > 520)
+              NavButton(
+                'About',
+                onTap: () {
+                  scrollBody(-64, controller!);
+                },
+              ),
+            if (constraints.maxWidth > 520)
+              NavButton(
+                'Projects',
+                onTap: () {
+                  scrollBody(h - 60 - 60, controller!);
+                },
+              ),
+            if (constraints.maxWidth > 520)
+              NavButton(
+                'Flutter',
+                onTap: () {
+                  scrollBody(2 * (h - 60) - 56, controller!);
+                },
+              ),
+            if (constraints.maxWidth > 520)
+              NavButton(
+                'Interests',
+                onTap: () {
+                  scrollBody(3 * (h - 60) - 56, controller!);
+                },
+              ),
+            if (constraints.maxWidth > 520)
+              NavButton(
+                'Contact',
+                onTap: () {
+                  scrollBody(4 * (h - 60) - 56, controller!);
+                },
+              ),
+            if (constraints.maxWidth <= 520)
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (_) => MobileNavDialog(controller: controller!),
+                  );
+                },
+                child: SvgPicture.asset(
+                  'assets/icons/menu.svg',
+                  height: 24,
+                  color: AppColors.primaryColor,
+                ),
+              )
           ],
         ),
       );
     });
+  }
+}
+
+void scrollBody(double h, ScrollController controller) {
+  controller.animateTo(
+    h,
+    duration: const Duration(milliseconds: 370),
+    curve: Curves.easeOut,
+  );
+}
+
+class MobileNavDialog extends StatelessWidget {
+  const MobileNavDialog({Key? key, required this.controller}) : super(key: key);
+
+  final ScrollController controller;
+
+  @override
+  Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    return Dialog(
+      backgroundColor: Colors.transparent,
+      insetPadding: EdgeInsets.zero,
+      elevation: 0,
+      child: Stack(
+        children: [
+          GestureDetector(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            behavior: HitTestBehavior.translucent,
+            child: SizedBox(
+              height: h,
+              width: double.infinity,
+            ),
+          ),
+          Positioned(
+            right: 16,
+            top: 56,
+            child: Container(
+              padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
+              decoration: BoxDecoration(
+                  color: Colors.white, borderRadius: BorderRadius.circular(4)),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  NavButton(
+                    'About',
+                    onTap: () {
+                      Navigator.pop(context);
+                      scrollBody(-64, controller);
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  NavButton(
+                    'Projects',
+                    onTap: () {
+                      Navigator.pop(context);
+                      scrollBody(h - 60 - 60, controller);
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  NavButton(
+                    'Flutter',
+                    onTap: () {
+                      Navigator.pop(context);
+                      scrollBody(2 * (h - 60) - 56, controller);
+                    },
+                  ),
+                  const SizedBox(height: 16),
+                  NavButton(
+                    'Interests',
+                    onTap: () {
+                      Navigator.pop(context);
+                      scrollBody(3 * (h - 60) - 56, controller);
+                    },
+                  ),
+                  const SizedBox(height: 12),
+                  NavButton(
+                    'Contact',
+                    onTap: () {
+                      Navigator.pop(context);
+                      scrollBody(4 * (h - 60) - 56, controller);
+                    },
+                  ),
+                  const SizedBox(height: 18),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      NavButton('Github', onTap: () {
+                        UrlLaunchUtil.launch('https://github.com/Ayush783/');
+                      }, hasIcon: true, icon: 'github.svg'),
+                      const SizedBox(width: 12),
+                      NavButton('LinkedIn', onTap: () {
+                        UrlLaunchUtil.launch(
+                            'https://www.linkedin.com/in/ayushb58/');
+                      }, hasIcon: true, icon: 'linkedin.svg'),
+                      const SizedBox(width: 12),
+                      NavButton('Twitter', onTap: () {
+                        UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
+                      }, hasIcon: true, icon: 'twitter.svg'),
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
 
