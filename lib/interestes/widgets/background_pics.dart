@@ -64,8 +64,10 @@ double getWidthFactor(BuildContext context) {
     return 1;
   } else if (w > 720) {
     return 0.8;
-  } else {
+  } else if (w > 430) {
     return 0.6;
+  } else {
+    return 0.55;
   }
 }
 
@@ -75,11 +77,11 @@ List<List<double>> cordinates(BuildContext context) {
 
   return [
     [32, 0],
-    [w / 4 + 60, h / 5],
+    [w / 4 + (w > 540 ? 60 : 0), h / 5],
     [w / 2, 32],
     [3 * w / 4, h / 2.5],
-    [w / 6, h / 2.7],
+    [w / 6 - (w < 540 ? 60 : 0), h / 2.7],
     [w / 2 - 60, h / 2],
-    [3 * w / 4 + 60, 0],
+    [3 * w / 4 + (w > 700 ? 60 : 0), 0],
   ];
 }

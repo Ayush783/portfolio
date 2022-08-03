@@ -53,8 +53,16 @@ class _InterestTextsListViewState extends ConsumerState<InterestTextsListView> {
         duration: const Duration(milliseconds: 370),
         padding: EdgeInsets.only(
           top: switchText ? 32 : 0,
-          left: w / 4,
-          right: w / 4,
+          left: w > 600
+              ? w / 4
+              : w > 400
+                  ? w / 6
+                  : w / 8,
+          right: w > 600
+              ? w / 4
+              : w > 400
+                  ? w / 6
+                  : w / 8,
         ),
         child: AnimatedOpacity(
           duration: const Duration(milliseconds: 370),
