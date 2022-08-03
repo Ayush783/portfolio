@@ -46,6 +46,7 @@ class _MFVTextsState extends ConsumerState<MFVTexts> {
   @override
   Widget build(BuildContext context) {
     final i = ref.watch(mfvProvider).tIndex;
+    final w = MediaQuery.of(context).size.width;
     return AnimatedPadding(
       duration: const Duration(milliseconds: 370),
       padding: EdgeInsets.only(
@@ -71,8 +72,12 @@ class _MFVTextsState extends ConsumerState<MFVTexts> {
                       (e) => TextSpan(
                         text: e,
                         style: texts[i].split('*').indexOf(e) % 2 != 0
-                            ? AppTypography.boldBodyTextstyle2
-                            : AppTypography.bodyTextstyle2,
+                            ? AppTypography.boldBodyTextstyle2.copyWith(
+                                fontSize: w < 340 ? 16 : 20,
+                              )
+                            : AppTypography.bodyTextstyle2.copyWith(
+                                fontSize: w < 340 ? 16 : 20,
+                              ),
                       ),
                     )
                     .toList(),

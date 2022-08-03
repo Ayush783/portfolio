@@ -61,6 +61,7 @@ class PicCard extends ConsumerWidget {
     bool isPushing = ref.watch(mfvProvider).push;
     final int bottomId = ref.watch(mfvProvider).bottomId;
     final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
 
     return AnimatedPositioned(
       top: id - pIndex < -1
@@ -102,8 +103,12 @@ class PicCard extends ConsumerWidget {
               ]),
           child: Image.asset(
             img,
-            height: h / 2,
-            width: h / 2,
+            height: w > 800
+                ? h / 2
+                : w > 400
+                    ? h / 2.5
+                    : h / 2.8,
+            // width: h / 2,
             cacheHeight: h ~/ 2,
             cacheWidth: h ~/ 2,
             gaplessPlayback: true,

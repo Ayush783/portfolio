@@ -3,7 +3,6 @@ import 'package:portfolio/theme/theme.dart';
 
 import '../widgets/mfv_pics.dart';
 import '../widgets/mfv_texts.dart';
-// TODO: Needs to change layout below 1280 px width
 
 class MyFlutterView extends StatefulWidget {
   const MyFlutterView({Key? key}) : super(key: key);
@@ -42,6 +41,7 @@ class _MyFlutterViewState extends State<MyFlutterView> {
 
   @override
   Widget build(BuildContext context) {
+    final w = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.all(20),
       child: AnimatedOpacity(
@@ -51,8 +51,10 @@ class _MyFlutterViewState extends State<MyFlutterView> {
         child: Column(
           children: [
             Text(
-              'My Contribution To The Community',
-              style: AppTypography.boldHeadingTextstyle,
+              '${w > 400 ? 'My Contribution To' : 'For'} The Community',
+              style: AppTypography.boldHeadingTextstyle.copyWith(
+                fontSize: w < 560 ? 24 : 32,
+              ),
             ),
             const SizedBox(height: 20),
             const Expanded(child: MFVBody()),
@@ -71,15 +73,50 @@ class MFVBody extends StatelessWidget {
     final w = MediaQuery.of(context).size.width;
     return LayoutBuilder(builder: (context, constraints) {
       return Padding(
-        padding: EdgeInsets.symmetric(horizontal: w / 4),
-        child: Row(
-          children: const [
-            Expanded(
-              flex: 2,
-              child: MFVTexts(),
+        padding: EdgeInsets.symmetric(
+          horizontal: w > 900
+              ? w / 4
+              : w > 580
+                  ? w / 6
+                  : w > 480
+                      ? w / 8
+                      : 16,
+        ),
+        child: Stack(
+          children: [
+            if (w <= 1100)
+              Padding(
+                padding: const EdgeInsets.only(top: 32),
+                child: Row(
+                  children: [
+                    if (w > 620) const Spacer(),
+                    if (w <= 620 && w > 400) SizedBox(width: w / 6),
+                    Expanded(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Expanded(
+                            child: Opacity(
+                              opacity: 0.35,
+                              child: MFVPics(),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            Row(
+              children: [
+                const Expanded(
+                  flex: 2,
+                  child: MFVTexts(),
+                ),
+                const SizedBox(width: 16),
+                if (w > 1100) const Expanded(child: MFVPics()),
+              ],
             ),
-            SizedBox(width: 16),
-            Expanded(child: MFVPics()),
           ],
         ),
       );
