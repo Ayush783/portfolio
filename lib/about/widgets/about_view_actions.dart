@@ -52,8 +52,6 @@ class _AboutViewActions extends ConsumerState<AboutViewActions> {
         return 'https://pub.dev/packages/readsms';
       case 4:
         return 'https://medium.com/@Ayush_b58';
-      case 5:
-        return '#';
       default:
         return '';
     }
@@ -82,12 +80,24 @@ class _AboutViewActions extends ConsumerState<AboutViewActions> {
   @override
   Widget build(BuildContext context) {
     final tIndex = ref.watch(aboutProvider).textIndex;
+    final h = MediaQuery.of(context).size.height;
     return Row(
       children: [
         if (tIndex > 1)
           InkWell(
             onTap: () {
-              UrlLaunchUtil.launch(getUrl(tIndex));
+              if (tIndex == 5) {
+                final controller = context
+                    .findAncestorStateOfType<NestedScrollViewState>()!
+                    .innerController;
+                controller.animateTo(
+                  4 * (h - 60) - 56,
+                  duration: const Duration(milliseconds: 370),
+                  curve: Curves.easeOut,
+                );
+              } else {
+                UrlLaunchUtil.launch(getUrl(tIndex));
+              }
             },
             onHover: (val) {
               setState(() {
