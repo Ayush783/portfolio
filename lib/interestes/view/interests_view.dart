@@ -80,13 +80,13 @@ class _InterestsViewState extends ConsumerState<InterestsView> {
 }
 
 const List<String> images = [
-  'assets/images/7.png',
-  'assets/images/8.png',
-  'assets/images/9.png',
-  'assets/images/10.png',
-  'assets/images/11.png',
-  'assets/images/14.png',
-  'assets/images/15.png'
+  'assets/images/7.webp',
+  'assets/images/8.webp',
+  'assets/images/9.webp',
+  'assets/images/10.webp',
+  'assets/images/11.webp',
+  'assets/images/14.webp',
+  'assets/images/15.webp'
 ];
 
 const waitTimes = [550, 400, 900, 700, 650, 500, 650];

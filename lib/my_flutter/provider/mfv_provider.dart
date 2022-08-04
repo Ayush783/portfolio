@@ -72,12 +72,12 @@ class MFVNotifier extends ChangeNotifier {
 }
 
 const List<String> pics = [
-  'assets/images/1.png',
-  'assets/images/2.png',
-  'assets/images/3.png',
-  'assets/images/4.png',
-  'assets/images/5.png',
-  'assets/images/6.png',
+  'assets/images/1.webp',
+  'assets/images/2.webp',
+  'assets/images/3.webp',
+  'assets/images/4.webp',
+  'assets/images/5.webp',
+  'assets/images/6.webp',
 ];
 
 

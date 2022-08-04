@@ -36,7 +36,7 @@ const List<Map<String, dynamic>> projectsData = [
     'desc':
         'It is a mobile application made with Flutter for my college community - DSC KIET. It currently has 1k+ downloads on Play Store. ',
     'linkToSrc': 'https://github.com/dsckiet/DSC-KIET-APP',
-    'imgUrl': 'assets/images/dsc.png',
+    'imgUrl': 'assets/images/dsc.webp',
     'linkToDemo': 'https://play.google.com/store/apps/details?id=tech.dsckiet',
     'hasDemo': true,
   },
@@ -45,7 +45,7 @@ const List<Map<String, dynamic>> projectsData = [
     'desc':
         'This is a mobile application that can extract text from images and then translate it to your desired language. It uses Google\'s ML Kit and is able to recognise 103 languages.',
     'linkToSrc': 'https://github.com/Ayush783/flutter_translator',
-    'imgUrl': 'assets/images/flutter_translator.png',
+    'imgUrl': 'assets/images/flutter_translator.webp',
     'linkToDemo': 'https://youtube.com/shorts/eZDvpRaO7ec',
     'hasDemo': true,
   },
@@ -54,7 +54,7 @@ const List<Map<String, dynamic>> projectsData = [
     'desc':
         ' This is a solution where we help those patients who are fight against breast cancer by providing them a reliable and effective solution. This was built as a submission to ELC Hackathon',
     'linkToSrc': 'https://github.com/Ayush783/YODHA-fighting_breast_cancer',
-    'imgUrl': 'assets/images/yodha.png',
+    'imgUrl': 'assets/images/yodha.webp',
     'linkToDemo': 'https://www.youtube.com/watch?v=C1X8qjCVlMQ',
     'hasDemo': true,
   },
@@ -63,7 +63,7 @@ const List<Map<String, dynamic>> projectsData = [
     'desc':
         'A mobile application built with Flutter that displays general information of all the countries around the Globe. You can search countries based on Area, Region, Language, Currency etc. You can also save the countries on your device.',
     'linkToSrc': 'https://github.com/Ayush783/Country-App',
-    'imgUrl': 'assets/images/country.png',
+    'imgUrl': 'assets/images/country.webp',
     'linkToDemo': 'https://github.com/Ayush783/Country-App/releases/tag/1.1.0',
     'hasDemo': true,
   },
@@ -72,7 +72,7 @@ const List<Map<String, dynamic>> projectsData = [
     'desc':
         'This is a web application built with Django. It is an educational platform providing modern technical skills with minimal investment.',
     'linkToSrc': 'https://github.com/Ayush783/Dexter-Brains',
-    'imgUrl': 'assets/images/db_cover.png',
+    'imgUrl': 'assets/images/db_cover.webp',
     'linkToDemo': 'https://dexterbrains.com/',
     'hasDemo': true,
   },

@@ -27,7 +27,7 @@ class AboutView extends ConsumerWidget {
               child: Opacity(
                 opacity: 0.45,
                 child: Image.asset(
-                  'assets/images/12.png',
+                  'assets/images/12.webp',
                   height: h / 1.5,
                   cacheHeight: h ~/ 1.5 + 1,
                 ),
@@ -39,7 +39,7 @@ class AboutView extends ConsumerWidget {
                 Expanded(
                   flex: 2,
                   child: Image.asset(
-                    'assets/images/12.png',
+                    'assets/images/12.webp',
                   ),
                 ),
               SizedBox(width: 32.getResponsiveWidth(context)),
