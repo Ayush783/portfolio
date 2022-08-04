@@ -42,6 +42,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
+      title: 'Aayush Sharma',
       debugShowCheckedModeBanner: false,
       home: HomeView(),
     );

@@ -1,11 +1,11 @@
 {
-    "name": "portfolio",
-    "short_name": "portfolio",
+    "name": "Aayush Sharma",
+    "short_name": "Aayush Sharma",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "This page describes the unheard saga of a Flutter developer who is passionate about his work!",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
