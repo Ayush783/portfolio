@@ -12,7 +12,7 @@ class ContactNotifier extends ChangeNotifier {
 
   void animatePage() {
     _onScreen = true;
-    Future.delayed(Duration(milliseconds: 500), () {
+    Future.delayed(const Duration(milliseconds: 500), () {
       _animateForm = true;
       notifyListeners();
     });

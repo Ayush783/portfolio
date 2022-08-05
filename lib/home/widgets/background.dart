@@ -18,15 +18,15 @@ class Background extends StatelessWidget {
           ],
         ),
       ),
-      child: Stack(
-        children: [
-          // Positioned(
-          //   bottom: 0,
-          //   left: 0,
-          //   child: AnimatedComponent.ring(),
-          // )
-        ],
-      ),
+      // child: Stack(
+      //   children: [
+      //     // Positioned(
+      //     //   bottom: 0,
+      //     //   left: 0,
+      //     //   child: AnimatedComponent.ring(),
+      //     // )
+      //   ],
+      // ),
     );
   }
 }

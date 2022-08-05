@@ -43,7 +43,7 @@ const List<Map<String, dynamic>> projectsData = [
   {
     'title': 'FLUTTER TRANSLATOR',
     'desc':
-        'This is a mobile application that can extract text from images and then translate it to your desired language. It uses Google\'s ML Kit and is able to recognise 103 languages.',
+        'This is a mobile application that can extract text from images and then translate it to your desired language. It uses Google\'s ML Kit and is able to recognize 103 languages.',
     'linkToSrc': 'https://github.com/Ayush783/flutter_translator',
     'imgUrl': 'assets/images/flutter_translator.webp',
     'linkToDemo': 'https://youtube.com/shorts/eZDvpRaO7ec',
@@ -52,7 +52,7 @@ const List<Map<String, dynamic>> projectsData = [
   {
     'title': 'YODHA FIGHTING BREAST CANCER',
     'desc':
-        ' This is a solution where we help those patients who are fight against breast cancer by providing them a reliable and effective solution. This was built as a submission to ELC Hackathon',
+        'This is a solution where we help those patients who are fight against breast cancer by providing them a reliable and effective solution. It was built as a submission to ELC Hackathon',
     'linkToSrc': 'https://github.com/Ayush783/YODHA-fighting_breast_cancer',
     'imgUrl': 'assets/images/yodha.webp',
     'linkToDemo': 'https://www.youtube.com/watch?v=C1X8qjCVlMQ',
@@ -61,7 +61,7 @@ const List<Map<String, dynamic>> projectsData = [
   {
     'title': 'COUNTRY APP',
     'desc':
-        'A mobile application built with Flutter that displays general information of all the countries around the Globe. You can search countries based on Area, Region, Language, Currency etc. You can also save the countries on your device.',
+        'A mobile application built with Flutter that displays general information about all the countries around the Globe. You can search countries based on Area, Region, Language, Currency, etc. You can also save the countries on your device.',
     'linkToSrc': 'https://github.com/Ayush783/Country-App',
     'imgUrl': 'assets/images/country.webp',
     'linkToDemo': 'https://github.com/Ayush783/Country-App/releases/tag/1.1.0',

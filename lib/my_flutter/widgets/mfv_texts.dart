@@ -101,9 +101,9 @@ const List<String> titles = [
 ];
 
 const List<String> texts = [
-  'This was a golden opportunity for me to be a *mentor at a big stage*, All thanks to my club - *DSC KIET*.\n\nThis Bootcamp was held in my college between *6th to 11th Dec 2021*. I was grateful to be a part of the team which *trained more than 200 devs* during this event.\n\nWe helped our juniors kickstart their Flutter journey and guided them in making their first mobile app.\n\nTake a look at the resources gathered during the bootcamp.',
-  'This is my *first Flutter plugin*. It *currently supports Android* only with IoS support to be launched with further updates.\n\nIt is used for *listening to incoming SMS* on device while the App is running.\n\nHead over to pub.dev and do *like it and star the repo* :)',
-  'I love reading and writing articles related with Flutter and other awesom techs!.\n\nI wrote my first blog at an early stage of my Flutter dev Journey and Till now *I\'ve written couple of blogs as an individual* and multiple blogs for a personal initiative i.e. *Dexter Brains*.\n\nI plan on writing more of them till then have a *look at my blogs on Medium*.'
+  'This was a golden opportunity for me to be a *mentor on a big stage*, All thanks to my club - *DSC KIET*.\n\nThis Bootcamp was held in my college between *6th to 11th Dec 2021*. I was grateful to be a part of the team which *trained more than 200 devs* during this event.\n\nWe helped our juniors kickstart their Flutter journey and guided them in making their first mobile app.\n\nTake a look at the resources gathered during the Bootcamp.',
+  'This is my *first Flutter plugin*. It *currently supports Android* only with IoS support to be launched with further updates.\n\nIt is used for *listening to incoming SMS* on the device while the App is running.\n\nHead over to pub.dev and do *like it and star the repo* :)',
+  'I love reading and writing articles related to Flutter and other awesome techs!.\n\nI wrote my first blog at an early stage of my Flutter dev Journey and Till now *I\'ve written a couple of blogs as an individual* and multiple blogs for a personal initiative i.e. *Dexter Brains*.\n\nI plan on writing more of them till then have a *look at my blogs on Medium*.'
 ];
 
 const List<String> links = [
