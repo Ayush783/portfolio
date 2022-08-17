@@ -43,50 +43,53 @@ class _ContactViewState extends ConsumerState<ContactView> {
   Widget build(BuildContext context) {
     final onScreen = ref.watch(contactProvider).onScreen;
     final w = MediaQuery.of(context).size.width;
-    return AnimatedOpacity(
-      opacity: onScreen ? 1 : 0,
-      duration: const Duration(milliseconds: 370),
-      child: w > 720
-          ? Row(
-              children: [
-                const Expanded(
-                  child: ContactDetails(),
-                ),
-                Expanded(
-                  child: LayoutBuilder(builder: (context, constraints) {
-                    return Stack(
-                      children: [
-                        ContactForm(
-                          isBottom: false,
-                          w: constraints.maxWidth,
-                          h: constraints.maxHeight,
-                        ),
-                      ],
-                    );
-                  }),
-                )
-              ],
-            )
-          : Column(
-              children: [
-                const Expanded(
-                  child: ContactDetails(),
-                ),
-                Expanded(
-                  child: LayoutBuilder(builder: (context, constraints) {
-                    return Stack(
-                      children: [
-                        ContactForm(
-                          isBottom: true,
-                          w: constraints.maxWidth,
-                          h: constraints.maxHeight,
-                        ),
-                      ],
-                    );
-                  }),
-                )
-              ],
-            ),
+    return Semantics(
+      label: 'AAYUSH SHARMA | FLUTTER DEVELOPER CONTACT PAGE',
+      child: AnimatedOpacity(
+        opacity: onScreen ? 1 : 0,
+        duration: const Duration(milliseconds: 370),
+        child: w > 720
+            ? Row(
+                children: [
+                  const Expanded(
+                    child: ContactDetails(),
+                  ),
+                  Expanded(
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return Stack(
+                        children: [
+                          ContactForm(
+                            isBottom: false,
+                            w: constraints.maxWidth,
+                            h: constraints.maxHeight,
+                          ),
+                        ],
+                      );
+                    }),
+                  )
+                ],
+              )
+            : Column(
+                children: [
+                  const Expanded(
+                    child: ContactDetails(),
+                  ),
+                  Expanded(
+                    child: LayoutBuilder(builder: (context, constraints) {
+                      return Stack(
+                        children: [
+                          ContactForm(
+                            isBottom: true,
+                            w: constraints.maxWidth,
+                            h: constraints.maxHeight,
+                          ),
+                        ],
+                      );
+                    }),
+                  )
+                ],
+              ),
+      ),
     );
   }
 }

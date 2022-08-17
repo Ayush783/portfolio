@@ -47,10 +47,14 @@ class _BackgroundPicState extends ConsumerState<BackgroundPic> {
         curve: Curves.bounceInOut,
         child: Opacity(
           opacity: 0.45,
-          child: Image.asset(
-            widget.img,
-            height: h / 3 * getWidthFactor(context),
-            cacheHeight: h ~/ 3 + 1,
+          child: Semantics(
+            image: true,
+            label: 'AAYUSH SHARMA | FLUTTER DEVELOPER IMAGE',
+            child: Image.asset(
+              widget.img,
+              height: h / 3 * getWidthFactor(context),
+              cacheHeight: h ~/ 3 + 1,
+            ),
           ),
         ),
       ),

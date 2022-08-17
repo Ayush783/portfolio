@@ -43,36 +43,45 @@ class _InterestsViewState extends ConsumerState<InterestsView> {
   @override
   Widget build(BuildContext context) {
     bool onScreen = ref.watch(ivProvider).onscreen;
-    return Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: AnimatedOpacity(
-        opacity: onScreen ? 1 : 0,
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-        child: Column(
-          children: [
-            Text(
-              'Things I like',
-              style: AppTypography.boldHeadingTextstyle,
-            ),
-            Text(
-              'Apart from Flutter',
-              style: AppTypography.boldBodyTextstyle,
-            ),
-            Expanded(
-              child: Stack(
-                children: [
-                  for (int i = 0; i < 7; i++)
-                    BackgroundPic(
-                      images[i],
-                      waitTime: waitTimes[i],
-                      i: i,
-                    ),
-                  const InterestTextsListView(),
-                ],
+    return Semantics(
+      label: 'AAYUSH SHARMA | FLUTTER DEVELOPER INTERESTS VIEW',
+      child: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: AnimatedOpacity(
+          opacity: onScreen ? 1 : 0,
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+          child: Column(
+            children: [
+              Semantics(
+                label: 'Things I like',
+                child: Text(
+                  'Things I like',
+                  style: AppTypography.boldHeadingTextstyle,
+                ),
               ),
-            ),
-          ],
+              Semantics(
+                label: 'Apart from Flutter',
+                child: Text(
+                  'Apart from Flutter',
+                  style: AppTypography.boldBodyTextstyle,
+                ),
+              ),
+              Expanded(
+                child: Stack(
+                  children: [
+                    for (int i = 0; i < 7; i++)
+                      BackgroundPic(
+                        images[i],
+                        waitTime: waitTimes[i],
+                        i: i,
+                      ),
+                    const InterestTextsListView(),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

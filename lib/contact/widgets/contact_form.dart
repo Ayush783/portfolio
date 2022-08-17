@@ -75,25 +75,33 @@ class _FormBodyState extends State<FormBody> {
             Container(
               color: const Color(0xfff1f1f1),
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: TextFormField(
-                decoration: getDecoration('Subject'),
-                controller: sub,
-                validator: (val) => val!.isEmpty ? '' : null,
-                style: AppTypography.bodyTextstyle,
-                cursorColor: AppColors.primaryColor,
+              child: Semantics(
+                textField: true,
+                label: 'Subject text field',
+                child: TextFormField(
+                  decoration: getDecoration('Subject'),
+                  controller: sub,
+                  validator: (val) => val!.isEmpty ? '' : null,
+                  style: AppTypography.bodyTextstyle,
+                  cursorColor: AppColors.primaryColor,
+                ),
               ),
             ),
             const SizedBox(height: 12),
             Container(
               color: const Color(0xfff1f1f1),
               padding: const EdgeInsets.symmetric(horizontal: 4),
-              child: TextFormField(
-                decoration: getDecoration('Body'),
-                style: AppTypography.bodyTextstyle,
-                controller: body,
-                cursorColor: AppColors.primaryColor,
-                maxLines: 6,
-                validator: (val) => val!.isEmpty ? '' : null,
+              child: Semantics(
+                label: 'Body textfield',
+                textField: true,
+                child: TextFormField(
+                  decoration: getDecoration('Body'),
+                  style: AppTypography.bodyTextstyle,
+                  controller: body,
+                  cursorColor: AppColors.primaryColor,
+                  maxLines: 6,
+                  validator: (val) => val!.isEmpty ? '' : null,
+                ),
               ),
             ),
             const SizedBox(height: 4),

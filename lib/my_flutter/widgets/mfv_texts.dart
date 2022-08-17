@@ -58,32 +58,38 @@ class _MFVTextsState extends ConsumerState<MFVTexts> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              titles[i],
-              style: AppTypography.boldHeadingTextstyle2,
-              textAlign: TextAlign.center,
+            Semantics(
+              label: titles[i],
+              child: Text(
+                titles[i],
+                style: AppTypography.boldHeadingTextstyle2,
+                textAlign: TextAlign.center,
+              ),
             ),
             const SizedBox(height: 12),
-            RichText(
-              text: TextSpan(
-                children: texts[i]
-                    .split('*')
-                    .map(
-                      (e) => TextSpan(
-                        text: e,
-                        style: texts[i].split('*').indexOf(e) % 2 != 0
-                            ? AppTypography.boldBodyTextstyle2.copyWith(
-                                fontSize: w < 340 ? 16 : 20,
-                              )
-                            : AppTypography.bodyTextstyle2.copyWith(
-                                fontSize: w < 340 ? 16 : 20,
-                              ),
-                      ),
-                    )
-                    .toList(),
-                style: AppTypography.bodyTextstyle2,
+            Semantics(
+              label: texts[i],
+              child: RichText(
+                text: TextSpan(
+                  children: texts[i]
+                      .split('*')
+                      .map(
+                        (e) => TextSpan(
+                          text: e,
+                          style: texts[i].split('*').indexOf(e) % 2 != 0
+                              ? AppTypography.boldBodyTextstyle2.copyWith(
+                                  fontSize: w < 340 ? 16 : 20,
+                                )
+                              : AppTypography.bodyTextstyle2.copyWith(
+                                  fontSize: w < 340 ? 16 : 20,
+                                ),
+                        ),
+                      )
+                      .toList(),
+                  style: AppTypography.bodyTextstyle2,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
             const MFVActions()

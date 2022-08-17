@@ -26,10 +26,14 @@ class AboutView extends ConsumerWidget {
                       : -120,
               child: Opacity(
                 opacity: 0.45,
-                child: Image.asset(
-                  'assets/images/12.webp',
-                  height: h / 1.5,
-                  cacheHeight: h ~/ 1.5 + 1,
+                child: Semantics(
+                  label: 'AAYUSH SHARMA IMAGE',
+                  image: true,
+                  child: Image.asset(
+                    'assets/images/12.webp',
+                    height: h / 1.5,
+                    cacheHeight: h ~/ 1.5 + 1,
+                  ),
                 ),
               ),
             ),
@@ -38,8 +42,12 @@ class AboutView extends ConsumerWidget {
               if (w > 720)
                 Expanded(
                   flex: 2,
-                  child: Image.asset(
-                    'assets/images/12.webp',
+                  child: Semantics(
+                    label: 'AAYUSH SHARMA IMAGE',
+                    image: true,
+                    child: Image.asset(
+                      'assets/images/12.webp',
+                    ),
                   ),
                 ),
               SizedBox(width: 32.getResponsiveWidth(context)),
@@ -51,11 +59,14 @@ class AboutView extends ConsumerWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text.rich(
-                        TextSpan(
-                          text: 'Hello',
-                          style: AppTypography.boldHeadingTextstyle.copyWith(
-                            fontSize: w > 500 ? 64 : 48,
+                      Semantics(
+                        label: 'Hello',
+                        child: Text.rich(
+                          TextSpan(
+                            text: 'Hello',
+                            style: AppTypography.boldHeadingTextstyle.copyWith(
+                              fontSize: w > 500 ? 64 : 48,
+                            ),
                           ),
                         ),
                       ),

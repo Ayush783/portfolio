@@ -22,9 +22,13 @@ class ProjectTile extends StatelessWidget {
         children: [
           LayoutBuilder(
             builder: (context, constraints) {
-              return Image.asset(
-                project.imgUrl,
-                width: constraints.maxWidth,
+              return Semantics(
+                image: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER IMAGE',
+                child: Image.asset(
+                  project.imgUrl,
+                  width: constraints.maxWidth,
+                ),
               );
             },
           ),
@@ -33,10 +37,13 @@ class ProjectTile extends StatelessWidget {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Text(
-                    project.title,
-                    style: AppTypography.boldBodyTextstyle2
-                        .copyWith(color: Colors.white),
+                  Semantics(
+                    label: project.title,
+                    child: Text(
+                      project.title,
+                      style: AppTypography.boldBodyTextstyle2
+                          .copyWith(color: Colors.white),
+                    ),
                   ),
                   const SizedBox(height: 12),
                   Expanded(
@@ -59,19 +66,29 @@ class ProjectTile extends StatelessWidget {
                         return Row(
                           children: [
                             Expanded(
-                              child: ProjectActionButton(
-                                text: 'Src',
-                                url: project.linkToSrc,
-                                icon: 'assets/icons/github.svg',
+                              child: Semantics(
+                                button: true,
+                                label: 'Source link button',
+                                hint: 'Tap to open source code page',
+                                child: ProjectActionButton(
+                                  text: 'Src',
+                                  url: project.linkToSrc,
+                                  icon: 'assets/icons/github.svg',
+                                ),
                               ),
                             ),
                             const SizedBox(width: 12),
                             if (project.hasDemo)
                               Expanded(
-                                child: ProjectActionButton(
-                                  text: 'Demo',
-                                  url: project.linkToDemo,
-                                  icon: 'assets/icons/code.svg',
+                                child: Semantics(
+                                  button: true,
+                                  label: 'Demo link button',
+                                  hint: 'Tap to open Demo page',
+                                  child: ProjectActionButton(
+                                    text: 'Demo',
+                                    url: project.linkToDemo,
+                                    icon: 'assets/icons/code.svg',
+                                  ),
                                 ),
                               ),
                           ],
@@ -82,10 +99,15 @@ class ProjectTile extends StatelessWidget {
                             Row(
                               children: [
                                 Expanded(
-                                  child: ProjectActionButton(
-                                    text: 'Src',
-                                    url: project.linkToSrc,
-                                    icon: 'assets/icons/github.svg',
+                                  child: Semantics(
+                                    button: true,
+                                    label: 'Source link button',
+                                    hint: 'Tap to open source code page',
+                                    child: ProjectActionButton(
+                                      text: 'Src',
+                                      url: project.linkToSrc,
+                                      icon: 'assets/icons/github.svg',
+                                    ),
                                   ),
                                 ),
                               ],
@@ -95,10 +117,15 @@ class ProjectTile extends StatelessWidget {
                               Row(
                                 children: [
                                   Expanded(
-                                    child: ProjectActionButton(
-                                      text: 'Demo',
-                                      url: project.linkToDemo,
-                                      icon: 'assets/icons/code.svg',
+                                    child: Semantics(
+                                      button: true,
+                                      label: 'Demo link button',
+                                      hint: 'Tap to open Demo page',
+                                      child: ProjectActionButton(
+                                        text: 'Demo',
+                                        url: project.linkToDemo,
+                                        icon: 'assets/icons/code.svg',
+                                      ),
                                     ),
                                   ),
                                 ],

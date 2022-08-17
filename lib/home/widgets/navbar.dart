@@ -29,59 +29,105 @@ class _NavbarState extends State<Navbar> {
         padding: const EdgeInsets.all(16.0),
         child: Row(
           children: [
-            Text(
-              'Aayush Sharma ${constraints.maxWidth > 660 ? '| Flutter Developer' : ''}',
-              style: AppTypography.boldBodyTextstyle2
-                  .copyWith(color: AppColors.primaryColor),
+            Semantics(
+              label: 'AAYUSH SHARMA | FLUTTER DEVELOPER',
+              child: Text(
+                'Aayush Sharma ${constraints.maxWidth > 660 ? '| Flutter Developer' : ''}',
+                style: AppTypography.boldBodyTextstyle2
+                    .copyWith(color: AppColors.primaryColor),
+              ),
             ),
             const SizedBox(width: 16),
             if (constraints.maxWidth > 800)
-              NavButton('Github', onTap: () {
-                UrlLaunchUtil.launch('https://github.com/Ayush783/');
-              }, hasIcon: true, icon: 'github.svg'),
+              Semantics(
+                button: true,
+                label: 'Github',
+                link: true,
+                hint: 'Tap to launch github user page',
+                child: NavButton('Github', onTap: () {
+                  UrlLaunchUtil.launch('https://github.com/Ayush783/');
+                }, hasIcon: true, icon: 'github.svg'),
+              ),
             if (constraints.maxWidth > 800)
-              NavButton('LinkedIn', onTap: () {
-                UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
-              }, hasIcon: true, icon: 'linkedin.svg'),
+              Semantics(
+                button: true,
+                label: 'Linkedin',
+                link: true,
+                hint: 'Tap to launch Linkedin user page',
+                child: NavButton('LinkedIn', onTap: () {
+                  UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
+                }, hasIcon: true, icon: 'linkedin.svg'),
+              ),
             if (constraints.maxWidth > 800)
-              NavButton('Twitter', onTap: () {
-                UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
-              }, hasIcon: true, icon: 'twitter.svg'),
+              Semantics(
+                button: true,
+                label: 'Twitter',
+                link: true,
+                hint: 'Tap to launch Twitter user page',
+                child: NavButton('Twitter', onTap: () {
+                  UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
+                }, hasIcon: true, icon: 'twitter.svg'),
+              ),
             const Spacer(),
             if (constraints.maxWidth > 520)
-              NavButton(
-                'About',
-                onTap: () {
-                  scrollBody(-64, controller!);
-                },
+              Semantics(
+                button: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER ABOUT BUTTON',
+                hint: 'Tap to scroll to about section',
+                child: NavButton(
+                  'About',
+                  onTap: () {
+                    scrollBody(-64, controller!);
+                  },
+                ),
               ),
             if (constraints.maxWidth > 520)
-              NavButton(
-                'Projects',
-                onTap: () {
-                  scrollBody(h - 60 - 60, controller!);
-                },
+              Semantics(
+                button: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Project BUTTON',
+                hint: 'Tap to scroll to Project section',
+                child: NavButton(
+                  'Projects',
+                  onTap: () {
+                    scrollBody(h - 60 - 60, controller!);
+                  },
+                ),
               ),
             if (constraints.maxWidth > 520)
-              NavButton(
-                'Flutter',
-                onTap: () {
-                  scrollBody(2 * (h - 60) - 56, controller!);
-                },
+              Semantics(
+                button: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Flutter BUTTON',
+                hint: 'Tap to scroll to Flutter section',
+                child: NavButton(
+                  'Flutter',
+                  onTap: () {
+                    scrollBody(2 * (h - 60) - 56, controller!);
+                  },
+                ),
               ),
             if (constraints.maxWidth > 520)
-              NavButton(
-                'Interests',
-                onTap: () {
-                  scrollBody(3 * (h - 60) - 56, controller!);
-                },
+              Semantics(
+                button: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Interests BUTTON',
+                hint: 'Tap to scroll to Interests section',
+                child: NavButton(
+                  'Interests',
+                  onTap: () {
+                    scrollBody(3 * (h - 60) - 56, controller!);
+                  },
+                ),
               ),
             if (constraints.maxWidth > 520)
-              NavButton(
-                'Contact',
-                onTap: () {
-                  scrollBody(4 * (h - 60) - 56, controller!);
-                },
+              Semantics(
+                button: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Contact BUTTON',
+                hint: 'Tap to scroll to Contact section',
+                child: NavButton(
+                  'Contact',
+                  onTap: () {
+                    scrollBody(4 * (h - 60) - 56, controller!);
+                  },
+                ),
               ),
             if (constraints.maxWidth <= 520)
               GestureDetector(
@@ -147,61 +193,104 @@ class MobileNavDialog extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  NavButton(
-                    'About',
-                    onTap: () {
-                      Navigator.pop(context);
-                      scrollBody(-64, controller);
-                    },
+                  Semantics(
+                    button: true,
+                    label: 'AAYUSH SHARMA | FLUTTER DEVELOPER ABOUT BUTTON',
+                    hint: 'Tap to scroll to about section',
+                    child: NavButton(
+                      'About',
+                      onTap: () {
+                        Navigator.pop(context);
+                        scrollBody(-64, controller);
+                      },
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  NavButton(
-                    'Projects',
-                    onTap: () {
-                      Navigator.pop(context);
-                      scrollBody(h - 60 - 60, controller);
-                    },
+                  Semantics(
+                    button: true,
+                    label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Projects BUTTON',
+                    hint: 'Tap to scroll to Projects section',
+                    child: NavButton(
+                      'Projects',
+                      onTap: () {
+                        Navigator.pop(context);
+                        scrollBody(h - 60 - 60, controller);
+                      },
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  NavButton(
-                    'Flutter',
-                    onTap: () {
-                      Navigator.pop(context);
-                      scrollBody(2 * (h - 60) - 56, controller);
-                    },
+                  Semantics(
+                    button: true,
+                    label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Flutter BUTTON',
+                    hint: 'Tap to scroll to Flutter section',
+                    child: NavButton(
+                      'Flutter',
+                      onTap: () {
+                        Navigator.pop(context);
+                        scrollBody(2 * (h - 60) - 56, controller);
+                      },
+                    ),
                   ),
                   const SizedBox(height: 16),
-                  NavButton(
-                    'Interests',
-                    onTap: () {
-                      Navigator.pop(context);
-                      scrollBody(3 * (h - 60) - 56, controller);
-                    },
+                  Semantics(
+                    button: true,
+                    label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Interests BUTTON',
+                    hint: 'Tap to scroll to Interests section',
+                    child: NavButton(
+                      'Interests',
+                      onTap: () {
+                        Navigator.pop(context);
+                        scrollBody(3 * (h - 60) - 56, controller);
+                      },
+                    ),
                   ),
                   const SizedBox(height: 12),
-                  NavButton(
-                    'Contact',
-                    onTap: () {
-                      Navigator.pop(context);
-                      scrollBody(4 * (h - 60) - 56, controller);
-                    },
+                  Semantics(
+                    button: true,
+                    label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Contact BUTTON',
+                    hint: 'Tap to scroll to Contact section',
+                    child: NavButton(
+                      'Contact',
+                      onTap: () {
+                        Navigator.pop(context);
+                        scrollBody(4 * (h - 60) - 56, controller);
+                      },
+                    ),
                   ),
                   const SizedBox(height: 18),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
-                      NavButton('Github', onTap: () {
-                        UrlLaunchUtil.launch('https://github.com/Ayush783/');
-                      }, hasIcon: true, icon: 'github.svg'),
+                      Semantics(
+                        button: true,
+                        label: 'Github',
+                        link: true,
+                        hint: 'Tap to launch github user page',
+                        child: NavButton('Github', onTap: () {
+                          UrlLaunchUtil.launch('https://github.com/Ayush783/');
+                        }, hasIcon: true, icon: 'github.svg'),
+                      ),
                       const SizedBox(width: 12),
-                      NavButton('LinkedIn', onTap: () {
-                        UrlLaunchUtil.launch(
-                            'https://www.linkedin.com/in/ayushb58/');
-                      }, hasIcon: true, icon: 'linkedin.svg'),
+                      Semantics(
+                        button: true,
+                        label: 'Linkedin',
+                        link: true,
+                        hint: 'Tap to launch Linkedin user page',
+                        child: NavButton('LinkedIn', onTap: () {
+                          UrlLaunchUtil.launch(
+                              'https://www.linkedin.com/in/ayushb58/');
+                        }, hasIcon: true, icon: 'linkedin.svg'),
+                      ),
                       const SizedBox(width: 12),
-                      NavButton('Twitter', onTap: () {
-                        UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
-                      }, hasIcon: true, icon: 'twitter.svg'),
+                      Semantics(
+                        button: true,
+                        label: 'Twitter',
+                        link: true,
+                        hint: 'Tap to launch Twitter user page',
+                        child: NavButton('Twitter', onTap: () {
+                          UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
+                        }, hasIcon: true, icon: 'twitter.svg'),
+                      ),
                     ],
                   )
                 ],

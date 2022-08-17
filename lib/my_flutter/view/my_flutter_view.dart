@@ -42,23 +42,29 @@ class _MyFlutterViewState extends State<MyFlutterView> {
   @override
   Widget build(BuildContext context) {
     final w = MediaQuery.of(context).size.width;
-    return Container(
-      padding: const EdgeInsets.all(20),
-      child: AnimatedOpacity(
-        duration: const Duration(milliseconds: 500),
-        curve: Curves.easeIn,
-        opacity: onSCreen ? 1 : 0,
-        child: Column(
-          children: [
-            Text(
-              '${w > 400 ? 'My Contribution To' : 'For'} The Community',
-              style: AppTypography.boldHeadingTextstyle.copyWith(
-                fontSize: w < 560 ? 24 : 32,
+    return Semantics(
+      label: 'AAYUSH SHARMA | FLUTTER DEVELOPER CONTRIBUTIONS PAGE',
+      child: Container(
+        padding: const EdgeInsets.all(20),
+        child: AnimatedOpacity(
+          duration: const Duration(milliseconds: 500),
+          curve: Curves.easeIn,
+          opacity: onSCreen ? 1 : 0,
+          child: Column(
+            children: [
+              Semantics(
+                label: 'My Contribution To The Community',
+                child: Text(
+                  '${w > 400 ? 'My Contribution To' : 'For'} The Community',
+                  style: AppTypography.boldHeadingTextstyle.copyWith(
+                    fontSize: w < 560 ? 24 : 32,
+                  ),
+                ),
               ),
-            ),
-            const SizedBox(height: 20),
-            const Expanded(child: MFVBody()),
-          ],
+              const SizedBox(height: 20),
+              const Expanded(child: MFVBody()),
+            ],
+          ),
         ),
       ),
     );

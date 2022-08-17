@@ -35,14 +35,17 @@ class _AnimatedTextState extends State<AnimatedText> {
         runSpacing: 3,
         children: [
           for (int i = 0; i < subtexts.length; i++)
-            AnimatedPadding(
-              padding: EdgeInsets.only(top: animate ? 0 : 20),
-              duration: Duration(
-                milliseconds: 225 + 50 * i,
-              ),
-              child: Text(
-                subtexts[i],
-                style: AppTypography.bodyTextstyle2,
+            Semantics(
+              label: subtexts[i],
+              child: AnimatedPadding(
+                padding: EdgeInsets.only(top: animate ? 0 : 20),
+                duration: Duration(
+                  milliseconds: 225 + 50 * i,
+                ),
+                child: Text(
+                  subtexts[i],
+                  style: AppTypography.bodyTextstyle2,
+                ),
               ),
             ),
         ],

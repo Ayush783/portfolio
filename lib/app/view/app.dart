@@ -41,10 +41,14 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: 'Aayush Sharma',
-      debugShowCheckedModeBanner: false,
-      home: HomeView(),
+    return Semantics(
+      label:
+          'Portfolio website made with Flutter Web by AAYUSH SHARMA | FLUTTER DEVELOPER.',
+      child: const MaterialApp(
+        title: 'Aayush Sharma',
+        debugShowCheckedModeBanner: false,
+        home: HomeView(),
+      ),
     );
   }
 }

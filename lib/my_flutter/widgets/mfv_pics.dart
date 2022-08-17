@@ -101,17 +101,21 @@ class PicCard extends ConsumerWidget {
                   color: Colors.black.withOpacity(0.25),
                 ),
               ]),
-          child: Image.asset(
-            img,
-            height: w > 800
-                ? h / 2
-                : w > 400
-                    ? h / 2.5
-                    : h / 2.8,
-            // width: h / 2,
-            cacheHeight: h ~/ 2,
-            cacheWidth: h ~/ 2,
-            gaplessPlayback: true,
+          child: Semantics(
+            image: true,
+            label: 'AAYUSH SHARMA | FLUTTER DEVELOPER IMAGE',
+            child: Image.asset(
+              img,
+              height: w > 800
+                  ? h / 2
+                  : w > 400
+                      ? h / 2.5
+                      : h / 2.8,
+              // width: h / 2,
+              cacheHeight: h ~/ 2,
+              cacheWidth: h ~/ 2,
+              gaplessPlayback: true,
+            ),
           ),
         ),
       ),

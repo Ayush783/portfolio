@@ -70,16 +70,22 @@ class _InterestTextsListViewState extends ConsumerState<InterestTextsListView> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                titles[i],
-                style: AppTypography.boldHeadingTextstyle2,
-                textAlign: TextAlign.center,
+              Semantics(
+                label: titles[i],
+                child: Text(
+                  titles[i],
+                  style: AppTypography.boldHeadingTextstyle2,
+                  textAlign: TextAlign.center,
+                ),
               ),
               const SizedBox(height: 12),
-              Text(
-                texts[i],
-                style: AppTypography.bodyTextstyle2,
-                textAlign: TextAlign.center,
+              Semantics(
+                label: texts[i],
+                child: Text(
+                  texts[i],
+                  style: AppTypography.bodyTextstyle2,
+                  textAlign: TextAlign.center,
+                ),
               ),
               const SizedBox(height: 32),
             ],
