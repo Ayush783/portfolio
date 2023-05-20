@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/contact/provider/contact_provider.dart';
 import 'package:portfolio/contact/widgets/widgets/send_button.dart';
 import 'package:portfolio/theme/theme.dart';
+import 'package:portfolio/utils/firebase_analytics_service.dart';
 import 'package:portfolio/utils/url_launcher_util.dart';
 
 class ContactForm extends ConsumerStatefulWidget {
@@ -122,6 +123,8 @@ class _FormBodyState extends State<FormBody> {
                   setState(() {
                     formEmpty = false;
                   });
+                  FirebaseAnalyticsService.logEvents('contact',
+                      data: {'subject': sub.text, 'body': body.text});
                   UrlLaunchUtil.launch(
                       'mailto:aayush9778@gmail.com?subject=${sub.text}&body=${body.text}');
                 }

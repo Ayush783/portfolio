@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio/utils/firebase_analytics_service.dart';
 import '../../theme/theme.dart';
 import '../../utils/url_launcher_util.dart';
 
@@ -25,6 +26,8 @@ class _ProjectActionButtonState extends State<ProjectActionButton> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        FirebaseAnalyticsService.logEvents(
+            'Opened Project ${widget.text} ${widget.url}');
         UrlLaunchUtil.launch(widget.url);
       },
       onHover: (val) {

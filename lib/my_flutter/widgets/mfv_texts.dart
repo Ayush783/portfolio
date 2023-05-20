@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/my_flutter/provider/mfv_provider.dart';
 import 'package:portfolio/theme/theme.dart';
+import 'package:portfolio/utils/firebase_analytics_service.dart';
 
 import '../../utils/url_launcher_util.dart';
 
@@ -142,6 +143,15 @@ class _AboutViewActions extends ConsumerState<MFVActions> {
     }
   }
 
+  String getVal(int index) {
+    return switch (index) {
+      0 => 'Opened bootcamp',
+      1 => 'Opened ReadSms packaage',
+      2 => 'Opened Medium',
+      _ => 'Error',
+    };
+  }
+
   @override
   Widget build(BuildContext context) {
     final tIndex = ref.watch(mfvProvider).tIndex;
@@ -150,6 +160,9 @@ class _AboutViewActions extends ConsumerState<MFVActions> {
       children: [
         InkWell(
           onTap: () {
+            String val = '';
+            val = getVal(tIndex);
+            FirebaseAnalyticsService.logEvents(val);
             UrlLaunchUtil.launch(links[tIndex]);
           },
           onHover: (val) {

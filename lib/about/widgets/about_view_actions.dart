@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:portfolio/utils/firebase_analytics_service.dart';
 
 import '../../theme/theme.dart';
 import '../../utils/url_launcher_util.dart';
@@ -47,10 +48,13 @@ class _AboutViewActions extends ConsumerState<AboutViewActions> {
   String getUrl(int i) {
     switch (i) {
       case 2:
+        FirebaseAnalyticsService.logEvents('Opened Dexter brains');
         return 'https://dexterbrains.com/';
       case 3:
+        FirebaseAnalyticsService.logEvents('Opened ReadSms package');
         return 'https://pub.dev/packages/readsms';
       case 4:
+        FirebaseAnalyticsService.logEvents('Opened Medium');
         return 'https://medium.com/@Ayush_b58';
       default:
         return '';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/home/home.dart';
+import 'package:portfolio/utils/firebase_analytics_service.dart';
 
 class App extends StatefulWidget {
   const App({Key? key}) : super(key: key);
@@ -14,6 +15,8 @@ class _AppState extends State<App> {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
       precacheAllImages(context);
     });
+
+    FirebaseAnalyticsService.logEvents('Opened App');
 
     super.initState();
   }

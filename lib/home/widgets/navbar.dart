@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/theme/theme.dart';
+import 'package:portfolio/utils/firebase_analytics_service.dart';
 import 'package:portfolio/utils/url_launcher_util.dart';
 
 class Navbar extends StatefulWidget {
@@ -45,6 +46,7 @@ class _NavbarState extends State<Navbar> {
                 link: true,
                 hint: 'Tap to launch github user page',
                 child: NavButton('Github', onTap: () {
+                  FirebaseAnalyticsService.logEvents('Opened Github');
                   UrlLaunchUtil.launch('https://github.com/Ayush783/');
                 }, hasIcon: true, icon: 'github.svg'),
               ),
@@ -55,6 +57,7 @@ class _NavbarState extends State<Navbar> {
                 link: true,
                 hint: 'Tap to launch Linkedin user page',
                 child: NavButton('LinkedIn', onTap: () {
+                  FirebaseAnalyticsService.logEvents('Opened linkedin');
                   UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
                 }, hasIcon: true, icon: 'linkedin.svg'),
               ),
@@ -65,6 +68,7 @@ class _NavbarState extends State<Navbar> {
                 link: true,
                 hint: 'Tap to launch Twitter user page',
                 child: NavButton('Twitter', onTap: () {
+                  FirebaseAnalyticsService.logEvents('Opened Twitter');
                   UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
                 }, hasIcon: true, icon: 'twitter.svg'),
               ),
@@ -77,6 +81,7 @@ class _NavbarState extends State<Navbar> {
                 child: NavButton(
                   'About',
                   onTap: () {
+                    FirebaseAnalyticsService.logEvents('Clicked About');
                     scrollBody(-64, controller!);
                   },
                 ),
@@ -89,6 +94,7 @@ class _NavbarState extends State<Navbar> {
                 child: NavButton(
                   'Projects',
                   onTap: () {
+                    FirebaseAnalyticsService.logEvents('Clicked Projects');
                     scrollBody(h - 60 - 60, controller!);
                   },
                 ),
@@ -101,6 +107,7 @@ class _NavbarState extends State<Navbar> {
                 child: NavButton(
                   'Flutter',
                   onTap: () {
+                    FirebaseAnalyticsService.logEvents('Clicked Flutter');
                     scrollBody(2 * (h - 60) - 56, controller!);
                   },
                 ),
@@ -113,6 +120,7 @@ class _NavbarState extends State<Navbar> {
                 child: NavButton(
                   'Interests',
                   onTap: () {
+                    FirebaseAnalyticsService.logEvents('Clicked Interests');
                     scrollBody(3 * (h - 60) - 56, controller!);
                   },
                 ),
@@ -125,6 +133,7 @@ class _NavbarState extends State<Navbar> {
                 child: NavButton(
                   'Contact',
                   onTap: () {
+                    FirebaseAnalyticsService.logEvents('Clicked Contact');
                     scrollBody(4 * (h - 60) - 56, controller!);
                   },
                 ),
@@ -200,6 +209,7 @@ class MobileNavDialog extends StatelessWidget {
                     child: NavButton(
                       'About',
                       onTap: () {
+                        FirebaseAnalyticsService.logEvents('Clicked About');
                         Navigator.pop(context);
                         scrollBody(-64, controller);
                       },
@@ -213,6 +223,7 @@ class MobileNavDialog extends StatelessWidget {
                     child: NavButton(
                       'Projects',
                       onTap: () {
+                        FirebaseAnalyticsService.logEvents('Clicked Projects');
                         Navigator.pop(context);
                         scrollBody(h - 60 - 60, controller);
                       },
@@ -239,6 +250,7 @@ class MobileNavDialog extends StatelessWidget {
                     child: NavButton(
                       'Interests',
                       onTap: () {
+                        FirebaseAnalyticsService.logEvents('Clicked Interests');
                         Navigator.pop(context);
                         scrollBody(3 * (h - 60) - 56, controller);
                       },
@@ -252,6 +264,7 @@ class MobileNavDialog extends StatelessWidget {
                     child: NavButton(
                       'Contact',
                       onTap: () {
+                        FirebaseAnalyticsService.logEvents('Clicked Contact');
                         Navigator.pop(context);
                         scrollBody(4 * (h - 60) - 56, controller);
                       },
@@ -267,6 +280,7 @@ class MobileNavDialog extends StatelessWidget {
                         link: true,
                         hint: 'Tap to launch github user page',
                         child: NavButton('Github', onTap: () {
+                          FirebaseAnalyticsService.logEvents('Opened Github');
                           UrlLaunchUtil.launch('https://github.com/Ayush783/');
                         }, hasIcon: true, icon: 'github.svg'),
                       ),
@@ -277,6 +291,7 @@ class MobileNavDialog extends StatelessWidget {
                         link: true,
                         hint: 'Tap to launch Linkedin user page',
                         child: NavButton('LinkedIn', onTap: () {
+                          FirebaseAnalyticsService.logEvents('Opened Linkedin');
                           UrlLaunchUtil.launch(
                               'https://www.linkedin.com/in/ayushb58/');
                         }, hasIcon: true, icon: 'linkedin.svg'),
@@ -288,6 +303,7 @@ class MobileNavDialog extends StatelessWidget {
                         link: true,
                         hint: 'Tap to launch Twitter user page',
                         child: NavButton('Twitter', onTap: () {
+                          FirebaseAnalyticsService.logEvents('Opened Twitter');
                           UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
                         }, hasIcon: true, icon: 'twitter.svg'),
                       ),

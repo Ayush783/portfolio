@@ -97,10 +97,10 @@ class MFVBody extends StatelessWidget {
                   children: [
                     if (w > 620) const Spacer(),
                     if (w <= 620 && w > 400) SizedBox(width: w / 6),
-                    Expanded(
+                    const Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
+                        children: [
                           Expanded(
                             child: Opacity(
                               opacity: 0.35,
