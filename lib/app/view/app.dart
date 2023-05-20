@@ -11,8 +11,11 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   void initState() {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      precacheAllImages(context);
+    });
+
     super.initState();
-    precacheAllImages(context);
   }
 
   precacheAllImages(BuildContext context) {
