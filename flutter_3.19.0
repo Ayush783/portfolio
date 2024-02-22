@@ -1,0 +1,6 @@
+cd ../../flutter
+git checkout 3.19.0
+
+cd ../projects/portfolio
+flutter clean
+dart pub get

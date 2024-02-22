@@ -143,14 +143,12 @@ class _AboutViewActions extends ConsumerState<MFVActions> {
     }
   }
 
-  String getVal(int index) {
-    return switch (index) {
-      0 => 'Opened bootcamp',
-      1 => 'Opened ReadSms packaage',
-      2 => 'Opened Medium',
-      _ => 'Error',
-    };
-  }
+  String getVal(int index) => switch (index) {
+        0 => 'Opened bootcamp',
+        1 => 'Opened ReadSms packaage',
+        2 => 'Opened Medium',
+        _ => 'Error',
+      };
 
   @override
   Widget build(BuildContext context) {
