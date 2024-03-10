@@ -1,0 +1,8 @@
+flutter clean
+dart pub get
+
+flutter build web
+
+git add .
+git commit -m "build completed"
+git push
