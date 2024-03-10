@@ -57,7 +57,7 @@ class _AnimatedTextSwitcherState extends ConsumerState<AnimatedTextSwitcher> {
 List<String> aboutViewTexts = [
   'I\'m a Flutter enthusiast from India',
   'Currently, I\'m working at India Today Group as a Software Developer.',
-  'Apart from Flutter, I have worked with HTML, CSS, JS, PYTHON, DJANGO, etc. Here\'s a website I built using Django.',
+  // 'Apart from Flutter, I have worked with HTML, CSS, JS, PYTHON, DJANGO, etc. Here\'s a website I built using Django.',
   'Check out my first Flutter plugin. Do like it and star the repo.',
   'I love reading and writing blogs. Do take a look at my work on Medium.',
   'I\'m craving to work under people who are experts in my field.'

@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/app/view/controller/app_theme_controller.dart';
 import 'package:portfolio/home/home.dart';
+import 'package:portfolio/theme/app_theme.dart';
 import 'package:portfolio/utils/firebase_analytics_service.dart';
 
-class App extends StatefulWidget {
+class App extends ConsumerStatefulWidget {
   const App({Key? key}) : super(key: key);
 
   @override
-  State<App> createState() => _AppState();
+  ConsumerState<App> createState() => _AppState();
 }
 
-class _AppState extends State<App> {
+class _AppState extends ConsumerState<App> {
   @override
   void initState() {
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
@@ -47,13 +50,15 @@ class _AppState extends State<App> {
 
   @override
   Widget build(BuildContext context) {
+    final theme = ref.watch(appThemeController).currentTheme;
     return Semantics(
       label:
           'Portfolio website made with Flutter Web by AAYUSH SHARMA | FLUTTER DEVELOPER.',
-      child: const MaterialApp(
+      child: MaterialApp(
         title: 'Aayush Sharma',
+        theme: theme.themeData,
         debugShowCheckedModeBanner: false,
-        home: HomeView(),
+        home: const HomeView(),
       ),
     );
   }

@@ -17,13 +17,13 @@ class AboutViewActions extends ConsumerStatefulWidget {
 class _AboutViewActions extends ConsumerState<AboutViewActions> {
   String getText(int i) {
     switch (i) {
+      // case 2:
+      //   return 'Dexter Brains';
       case 2:
-        return 'Dexter Brains';
-      case 3:
         return 'pub.dev';
-      case 4:
+      case 3:
         return 'Medium';
-      case 5:
+      case 4:
         return 'Contact Me';
       default:
         return '';
@@ -32,13 +32,13 @@ class _AboutViewActions extends ConsumerState<AboutViewActions> {
 
   String getIcon(int i) {
     switch (i) {
-      case 2:
+      case 1:
         return 'db';
-      case 3:
+      case 2:
         return 'pub';
-      case 4:
+      case 3:
         return 'medium';
-      case 5:
+      case 4:
         return 'contact';
       default:
         return '';
@@ -47,13 +47,13 @@ class _AboutViewActions extends ConsumerState<AboutViewActions> {
 
   String getUrl(int i) {
     switch (i) {
-      case 2:
+      case 1:
         FirebaseAnalyticsService.logEvents('Opened Dexter brains');
         return 'https://dexterbrains.com/';
-      case 3:
+      case 2:
         FirebaseAnalyticsService.logEvents('Opened ReadSms package');
         return 'https://pub.dev/packages/readsms';
-      case 4:
+      case 3:
         FirebaseAnalyticsService.logEvents('Opened Medium');
         return 'https://medium.com/@Ayush_b58';
       default:
@@ -90,7 +90,7 @@ class _AboutViewActions extends ConsumerState<AboutViewActions> {
         if (tIndex > 1)
           InkWell(
             onTap: () {
-              if (tIndex == 5) {
+              if (tIndex == 4) {
                 final controller = context
                     .findAncestorStateOfType<NestedScrollViewState>()!
                     .innerController;
