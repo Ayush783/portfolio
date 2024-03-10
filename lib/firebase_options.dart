@@ -21,11 +21,20 @@ class DefaultFirebaseOptions {
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
-        return android;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for android - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.iOS:
-        return ios;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for ios - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.macOS:
-        return macos;
+        throw UnsupportedError(
+          'DefaultFirebaseOptions have not been configured for macos - '
+          'you can reconfigure this by running the FlutterFire CLI again.',
+        );
       case TargetPlatform.windows:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for windows - '
@@ -51,33 +60,5 @@ class DefaultFirebaseOptions {
     authDomain: 'portfolio-4c282.firebaseapp.com',
     storageBucket: 'portfolio-4c282.appspot.com',
     measurementId: 'G-EWDR1EXQ73',
-  );
-
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyCI0fim5wCGUkl0LPtkOYTUGO9OAqYbSYM',
-    appId: '1:22155030320:android:0281a6aa31004e4912e2f5',
-    messagingSenderId: '22155030320',
-    projectId: 'portfolio-4c282',
-    storageBucket: 'portfolio-4c282.appspot.com',
-  );
-
-  static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAVevFXcACTq1UybDHlkYBYyzXgKJJZmTg',
-    appId: '1:22155030320:ios:8e17c9785c7d33f612e2f5',
-    messagingSenderId: '22155030320',
-    projectId: 'portfolio-4c282',
-    storageBucket: 'portfolio-4c282.appspot.com',
-    iosClientId: '22155030320-ls1dsid29mke6k54j4sshsotoah0ve71.apps.googleusercontent.com',
-    iosBundleId: 'com.example.portfolio',
-  );
-
-  static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyAVevFXcACTq1UybDHlkYBYyzXgKJJZmTg',
-    appId: '1:22155030320:ios:8e17c9785c7d33f612e2f5',
-    messagingSenderId: '22155030320',
-    projectId: 'portfolio-4c282',
-    storageBucket: 'portfolio-4c282.appspot.com',
-    iosClientId: '22155030320-ls1dsid29mke6k54j4sshsotoah0ve71.apps.googleusercontent.com',
-    iosBundleId: 'com.example.portfolio',
   );
 }
