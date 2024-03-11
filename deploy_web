@@ -5,4 +5,5 @@ flutter build web
 
 git add .
 git commit -m "build completed"
+git pull
 git push
