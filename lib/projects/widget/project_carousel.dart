@@ -90,18 +90,19 @@ class _ProjectCarouselState extends State<ProjectCarousel> {
                               if (constraints.maxWidth > 260) {
                                 return Row(
                                   children: [
-                                    Expanded(
-                                      child: Semantics(
-                                        button: true,
-                                        label: 'Source link button',
-                                        hint: 'Tap to open source code page',
-                                        child: ProjectActionButton(
-                                          text: 'Src',
-                                          url: project.linkToSrc,
-                                          icon: 'assets/icons/github.svg',
+                                    if (project.hasSrc)
+                                      Expanded(
+                                        child: Semantics(
+                                          button: true,
+                                          label: 'Source link button',
+                                          hint: 'Tap to open source code page',
+                                          child: ProjectActionButton(
+                                            text: 'Src',
+                                            url: project.linkToSrc,
+                                            icon: 'assets/icons/github.svg',
+                                          ),
                                         ),
                                       ),
-                                    ),
                                     const SizedBox(width: 12),
                                     if (project.hasDemo)
                                       Expanded(
