@@ -78,6 +78,8 @@ class _ProjectCarouselState extends State<ProjectCarousel> {
                             padding: const EdgeInsets.all(16.0),
                             child: Text(
                               project.desc,
+                              maxLines: 5,
+                              overflow: TextOverflow.ellipsis,
                               style: AppTypography.bodyTextstyle.copyWith(
                                 color: Colors.white,
                               ),
@@ -124,19 +126,20 @@ class _ProjectCarouselState extends State<ProjectCarousel> {
                                   children: [
                                     Row(
                                       children: [
-                                        Expanded(
-                                          child: Semantics(
-                                            button: true,
-                                            label: 'Source link button',
-                                            hint:
-                                                'Tap to open source code page',
-                                            child: ProjectActionButton(
-                                              text: 'Src',
-                                              url: project.linkToSrc,
-                                              icon: 'assets/icons/github.svg',
+                                        if (project.hasSrc)
+                                          Expanded(
+                                            child: Semantics(
+                                              button: true,
+                                              label: 'Source link button',
+                                              hint:
+                                                  'Tap to open source code page',
+                                              child: ProjectActionButton(
+                                                text: 'Src',
+                                                url: project.linkToSrc,
+                                                icon: 'assets/icons/github.svg',
+                                              ),
                                             ),
                                           ),
-                                        ),
                                       ],
                                     ),
                                     const SizedBox(height: 12),
