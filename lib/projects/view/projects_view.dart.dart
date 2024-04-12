@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/projects/model/project.dart';
+import 'package:portfolio/projects/widget/project_carousel.dart';
 import 'package:portfolio/theme/theme.dart';
-
-import '../widget/project_animated_switcher.dart';
 
 class ProjectsView extends StatelessWidget {
   const ProjectsView({Key? key}) : super(key: key);
 
   double getWidthFactor(double maxWidth) {
     if (maxWidth > 1080) {
-      return 1 / 4;
+      return 1 / 16;
     } else if (maxWidth > 720) {
-      return 1 / 6;
+      return 1 / 16;
     } else {
-      return 1 / 10;
+      return 1 / 16;
     }
   }
 
@@ -47,18 +46,10 @@ class ProjectsView extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: ProjectsAnimatedSwitcher(
-                          projects: Project.getProjects
-                              .sublist(0, constraints.maxWidth > 720 ? 3 : 5),
+                        child: ProjectCarousel(
+                          projects: Project.getProjects,
                         ),
                       ),
-                      const SizedBox(width: 20),
-                      if (constraints.maxWidth > 720)
-                        Expanded(
-                          child: ProjectsAnimatedSwitcher(
-                            projects: Project.getProjects.sublist(3, 5),
-                          ),
-                        ),
                     ],
                   ),
                 );
