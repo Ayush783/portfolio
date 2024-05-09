@@ -12,4 +12,6 @@ class AboutNotifier extends ChangeNotifier {
     _textIndex %= 6;
     notifyListeners();
   }
+
+  getRecentMediumArticle() {}
 }

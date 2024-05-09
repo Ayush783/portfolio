@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:portfolio/medium/widgets/recent_medium_article_placeholder.dart';
+import 'package:portfolio/shared/widgets/animated_text.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utils/extension.dart';
 
@@ -70,8 +72,12 @@ class AboutView extends ConsumerWidget {
                           ),
                         ),
                       ),
+                      const AnimatedText(
+                          text:
+                              'I\'m a Software developer from India. Read my latest blog on Medium 👇'),
                       const SizedBox(height: 16),
-                      const Expanded(child: AnimatedTextSwitcher()),
+                      // const Expanded(child: AnimatedTextSwitcher()),
+                      const RecentMediumArticlePlaceholder(),
                     ],
                   ),
                 ),
