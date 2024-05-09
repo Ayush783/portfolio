@@ -3,6 +3,7 @@ import 'package:flutter_svg/svg.dart';
 import 'package:portfolio/theme/theme.dart';
 import 'package:portfolio/utils/firebase_analytics_service.dart';
 import 'package:portfolio/utils/url_launcher_util.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 class Navbar extends StatefulWidget {
   const Navbar({Key? key}) : super(key: key);
@@ -14,12 +15,22 @@ class Navbar extends StatefulWidget {
 class _NavbarState extends State<Navbar> {
   ScrollController? controller;
 
+  GlobalKey _showcaseWidget = GlobalKey();
+
   @override
   void initState() {
     super.initState();
     controller = context
         .findAncestorStateOfType<NestedScrollViewState>()!
         .innerController;
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      Future.delayed(
+        Duration(seconds: 2),
+        () {
+          ShowCaseWidget.of(context).startShowCase([_showcaseWidget]);
+        },
+      );
+    });
   }
 
   @override
@@ -40,37 +51,45 @@ class _NavbarState extends State<Navbar> {
             ),
             const SizedBox(width: 16),
             if (constraints.maxWidth > 800)
-              Semantics(
-                button: true,
-                label: 'Github',
-                link: true,
-                hint: 'Tap to launch github user page',
-                child: NavButton('Github', onTap: () {
-                  FirebaseAnalyticsService.logEvents('Opened Github');
-                  UrlLaunchUtil.launch('https://github.com/Ayush783/');
-                }, hasIcon: true, icon: 'github.svg'),
-              ),
-            if (constraints.maxWidth > 800)
-              Semantics(
-                button: true,
-                label: 'Linkedin',
-                link: true,
-                hint: 'Tap to launch Linkedin user page',
-                child: NavButton('LinkedIn', onTap: () {
-                  FirebaseAnalyticsService.logEvents('Opened linkedin');
-                  UrlLaunchUtil.launch('https://www.linkedin.com/in/ayushb58/');
-                }, hasIcon: true, icon: 'linkedin.svg'),
-              ),
-            if (constraints.maxWidth > 800)
-              Semantics(
-                button: true,
-                label: 'Twitter',
-                link: true,
-                hint: 'Tap to launch Twitter user page',
-                child: NavButton('Twitter', onTap: () {
-                  FirebaseAnalyticsService.logEvents('Opened Twitter');
-                  UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
-                }, hasIcon: true, icon: 'twitter.svg'),
+              Showcase(
+                key: _showcaseWidget,
+                description: 'Connect with me on these social handles',
+                descTextStyle: AppTypography.bodyTextstyle,
+                child: Row(
+                  children: [
+                    Semantics(
+                      button: true,
+                      label: 'Github',
+                      link: true,
+                      hint: 'Tap to launch github user page',
+                      child: NavButton('Github', onTap: () {
+                        FirebaseAnalyticsService.logEvents('Opened Github');
+                        UrlLaunchUtil.launch('https://github.com/Ayush783/');
+                      }, hasIcon: true, icon: 'github.svg'),
+                    ),
+                    Semantics(
+                      button: true,
+                      label: 'Linkedin',
+                      link: true,
+                      hint: 'Tap to launch Linkedin user page',
+                      child: NavButton('LinkedIn', onTap: () {
+                        FirebaseAnalyticsService.logEvents('Opened linkedin');
+                        UrlLaunchUtil.launch(
+                            'https://www.linkedin.com/in/ayushb58/');
+                      }, hasIcon: true, icon: 'linkedin.svg'),
+                    ),
+                    Semantics(
+                      button: true,
+                      label: 'Twitter',
+                      link: true,
+                      hint: 'Tap to launch Twitter user page',
+                      child: NavButton('Twitter', onTap: () {
+                        FirebaseAnalyticsService.logEvents('Opened Twitter');
+                        UrlLaunchUtil.launch('https://twitter.com/Ayush_b5');
+                      }, hasIcon: true, icon: 'twitter.svg'),
+                    ),
+                  ],
+                ),
               ),
             const Spacer(),
             if (constraints.maxWidth > 520)

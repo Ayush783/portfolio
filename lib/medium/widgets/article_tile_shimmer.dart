@@ -39,13 +39,10 @@ class _ArticleTileShimmerState extends State<ArticleTileShimmer> {
         if (deviceWidth >= 920) ...[
           Expanded(
             flex: 2,
-            child: LayoutBuilder(
-              builder: (context, constraints) => AnimatedContainer(
-                duration: const Duration(milliseconds: 500),
-                width: constraints.maxWidth,
-                height: 120,
-                color: Colors.grey.withOpacity(animate ? 0.3 : 0.5),
-              ),
+            child: AnimatedContainer(
+              duration: const Duration(milliseconds: 500),
+              height: 120,
+              color: Colors.grey.withOpacity(animate ? 0.3 : 0.5),
             ),
           ),
           const SizedBox(width: 16),
@@ -56,13 +53,10 @@ class _ArticleTileShimmerState extends State<ArticleTileShimmer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (deviceWidth < 920) ...[
-                LayoutBuilder(
-                  builder: (context, constraints) => AnimatedContainer(
-                    duration: const Duration(milliseconds: 500),
-                    width: constraints.maxWidth,
-                    height: constraints.maxHeight,
-                    color: Colors.grey.withOpacity(animate ? 0.3 : 0.5),
-                  ),
+                AnimatedContainer(
+                  duration: const Duration(milliseconds: 500),
+                  height: 120,
+                  color: Colors.grey.withOpacity(animate ? 0.3 : 0.5),
                 ),
                 const SizedBox(height: 4),
               ],

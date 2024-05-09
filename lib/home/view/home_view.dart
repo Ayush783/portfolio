@@ -4,6 +4,7 @@ import 'package:portfolio/contact/contact.dart';
 import 'package:portfolio/home/widgets/navbar.dart';
 import 'package:portfolio/interestes/interests.dart';
 import 'package:portfolio/projects/projects.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 import '../../my_flutter/my_flutter.dart';
 import '../widgets/background.dart';
@@ -27,8 +28,12 @@ class HomeView extends StatelessWidget {
                       ? const Color(0xffe1e1e1)
                       : Colors.transparent,
                   elevation: 0,
-                  flexibleSpace: const FlexibleSpaceBar(
-                    title: Navbar(),
+                  flexibleSpace: FlexibleSpaceBar(
+                    title: ShowCaseWidget(
+                      builder: Builder(
+                        builder: (context) => const Navbar(),
+                      ),
+                    ),
                     expandedTitleScale: 1,
                     titlePadding: EdgeInsets.zero,
                   ),
