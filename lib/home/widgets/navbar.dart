@@ -92,7 +92,7 @@ class _NavbarState extends State<Navbar> {
                 ),
               ),
             const Spacer(),
-            if (constraints.maxWidth > 520)
+            if (constraints.maxWidth > 520) ...[
               Semantics(
                 button: true,
                 label: 'AAYUSH SHARMA | FLUTTER DEVELOPER ABOUT BUTTON',
@@ -105,7 +105,6 @@ class _NavbarState extends State<Navbar> {
                   },
                 ),
               ),
-            if (constraints.maxWidth > 520)
               Semantics(
                 button: true,
                 label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Project BUTTON',
@@ -118,7 +117,6 @@ class _NavbarState extends State<Navbar> {
                   },
                 ),
               ),
-            if (constraints.maxWidth > 520)
               Semantics(
                 button: true,
                 label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Flutter BUTTON',
@@ -131,7 +129,18 @@ class _NavbarState extends State<Navbar> {
                   },
                 ),
               ),
-            if (constraints.maxWidth > 520)
+              Semantics(
+                button: true,
+                label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Blogs BUTTON',
+                hint: 'Tap to scroll to blogs section',
+                child: NavButton(
+                  'Blogs',
+                  onTap: () {
+                    FirebaseAnalyticsService.logEvents('Clicked Blogs');
+                    scrollBody(3 * (h - 60) - 56, controller!);
+                  },
+                ),
+              ),
               Semantics(
                 button: true,
                 label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Interests BUTTON',
@@ -140,11 +149,10 @@ class _NavbarState extends State<Navbar> {
                   'Interests',
                   onTap: () {
                     FirebaseAnalyticsService.logEvents('Clicked Interests');
-                    scrollBody(3 * (h - 60) - 56, controller!);
+                    scrollBody(4 * (h - 60) - 56, controller!);
                   },
                 ),
               ),
-            if (constraints.maxWidth > 520)
               Semantics(
                 button: true,
                 label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Contact BUTTON',
@@ -153,10 +161,11 @@ class _NavbarState extends State<Navbar> {
                   'Contact',
                   onTap: () {
                     FirebaseAnalyticsService.logEvents('Clicked Contact');
-                    scrollBody(4 * (h - 60) - 56, controller!);
+                    scrollBody(5 * (h - 60) - 56, controller!);
                   },
                 ),
-              ),
+              )
+            ],
             if (constraints.maxWidth <= 520)
               GestureDetector(
                 onTap: () {
@@ -264,6 +273,20 @@ class MobileNavDialog extends StatelessWidget {
                   const SizedBox(height: 16),
                   Semantics(
                     button: true,
+                    label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Blogs BUTTON',
+                    hint: 'Tap to scroll to Blogs section',
+                    child: NavButton(
+                      'Blogs',
+                      onTap: () {
+                        FirebaseAnalyticsService.logEvents('Clicked Blogs');
+                        Navigator.pop(context);
+                        scrollBody(3 * (h - 60) - 56, controller);
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 12),
+                  Semantics(
+                    button: true,
                     label: 'AAYUSH SHARMA | FLUTTER DEVELOPER Interests BUTTON',
                     hint: 'Tap to scroll to Interests section',
                     child: NavButton(
@@ -271,7 +294,7 @@ class MobileNavDialog extends StatelessWidget {
                       onTap: () {
                         FirebaseAnalyticsService.logEvents('Clicked Interests');
                         Navigator.pop(context);
-                        scrollBody(3 * (h - 60) - 56, controller);
+                        scrollBody(4 * (h - 60) - 56, controller);
                       },
                     ),
                   ),
@@ -285,7 +308,7 @@ class MobileNavDialog extends StatelessWidget {
                       onTap: () {
                         FirebaseAnalyticsService.logEvents('Clicked Contact');
                         Navigator.pop(context);
-                        scrollBody(4 * (h - 60) - 56, controller);
+                        scrollBody(5 * (h - 60) - 56, controller);
                       },
                     ),
                   ),

@@ -3,6 +3,7 @@ import 'package:portfolio/about/about.dart';
 import 'package:portfolio/contact/contact.dart';
 import 'package:portfolio/home/widgets/navbar.dart';
 import 'package:portfolio/interestes/interests.dart';
+import 'package:portfolio/medium/widgets/article_carousel.dart';
 import 'package:portfolio/projects/projects.dart';
 import 'package:showcaseview/showcaseview.dart';
 
@@ -78,6 +79,7 @@ class _ScrollViewBodyState extends State<ScrollViewBody> {
         AboutView(),
         ProjectsView(),
         MyFlutterView(),
+        ArticleCarousel(),
         InterestsView(),
         ContactView(),
       ],

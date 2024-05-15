@@ -22,7 +22,7 @@ class MediumArticle {
   }
 
   MediumArticle.fromMap(Map<String, dynamic> map)
-      : title = map['title'],
+      : title = (map['title'] as String).replaceAll('&amp;', '&'),
         pubDate = DateTime.tryParse(map['pubDate']),
         link = map['link'],
         guid = map['guid'],

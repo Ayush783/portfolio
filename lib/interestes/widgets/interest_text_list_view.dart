@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:portfolio/interestes/provider/interest_view_provider.dart';
@@ -81,10 +82,11 @@ class _InterestTextsListViewState extends ConsumerState<InterestTextsListView> {
               const SizedBox(height: 12),
               Semantics(
                 label: texts[i],
-                child: Text(
+                child: AutoSizeText(
                   texts[i],
                   style: AppTypography.bodyTextstyle2,
                   textAlign: TextAlign.center,
+                  maxLines: 18,
                 ),
               ),
               const SizedBox(height: 32),

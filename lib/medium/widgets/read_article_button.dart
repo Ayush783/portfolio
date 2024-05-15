@@ -28,6 +28,7 @@ class _LaunchArticleButton extends ConsumerState<LaunchArticleButton> {
       children: [
         InkWell(
           onTap: () {
+            FirebaseAnalyticsService.logEvents('opened recent medium article');
             UrlLaunchUtil.launch(widget.url);
           },
           onHover: (val) {
