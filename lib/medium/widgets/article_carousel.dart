@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
@@ -82,8 +83,11 @@ class _ArticleCarouselState extends ConsumerState<ArticleCarousel> {
             error: (error, stackTrace) => const Center(
               child: Text('Error fetching articles!'),
             ),
-            loading: () => const Center(
-              child: ArticleTileShimmer(),
+            loading: () => Padding(
+              padding: EdgeInsets.symmetric(horizontal: w / 8, vertical: h / 8),
+              child: const Center(
+                child: ArticleTileShimmer(),
+              ),
             ),
           ),
     );
@@ -128,9 +132,11 @@ class _ArticleCarouselTile extends StatelessWidget {
             const SizedBox(height: 4),
             Semantics(
               label: article.title,
-              child: Text(
+              child: AutoSizeText(
                 article.title!,
+                minFontSize: 14,
                 style: AppTypography.boldBodyTextstyle,
+                maxLines: 2,
                 textAlign: TextAlign.center,
               ),
             ),
